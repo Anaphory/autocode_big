@@ -337,6 +337,7 @@ def add_language(language_id, threshold=0.55):
             continue
 
     reset_components = set()
+    # TODO: Change this query. Make it similar to the other one.
     for c1, c2 in session.query(F.connected_component, Form.connected_component).join(
             Similarity, Form.id==Similarity.form1_id).join(
                     F, F.id==Similarity.form2_id).filter(
